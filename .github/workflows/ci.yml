@@ -48,14 +48,5 @@ jobs:
           tags: |
             ${{ vars.DOCKER_USERNAME }}/hello-cicd:latest
             ${{ vars.DOCKER_USERNAME }}/hello-cicd:sha-${{ github.sha }}
-          ```yaml
-      - name: Build and push
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ vars.DOCKER_USERNAME }}/hello-cicd:latest
-            ${{ vars.DOCKER_USERNAME }}/hello-cicd:sha-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
